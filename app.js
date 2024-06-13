@@ -25,7 +25,21 @@ btns.forEach(function (btn) {
     // depending on the class list, we want the value to increase/decrease/reset
     if(styles.contains("decrease")){
       count--;
-      value.textContent = count;
+    } else if(styles.contains("increase")){
+      count++;
+    } else{
+      count = 0;
     }
+    // change the color of the value depending on the count
+    if(count > 0){
+      value.style.color = "green";
+    }
+    if(count < 0){
+      value.style.color = "red";
+    }
+    if(count === 0){
+      value.style.color = "black";
+    }
+    value.textContent = count;
   });
 });
